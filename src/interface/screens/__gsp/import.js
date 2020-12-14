@@ -115,8 +115,8 @@ class ImportDMDCQG extends Component {
       dmdcqg.map((item, i) => {
         let index = dataTmp.findIndex(x => x.CategoryCode === item.CategoryCode)
         if (index !== -1) {
-          let check = this._checkDiffrent(item, dataTmp[index])
-          if (check) listNonDiffrent.push(dataTmp[index]._id.$oid)
+          let check = this._checkDiffrent(item, dataTmp[`${index}`])
+          if (check) listNonDiffrent.push(dataTmp[`${index}`]._id.$oid)
         }
       })
 

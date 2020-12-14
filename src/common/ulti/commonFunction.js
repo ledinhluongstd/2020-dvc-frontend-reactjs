@@ -163,8 +163,8 @@ function convertSelectedOptions(obj, value, label) {
     obj.forEach((item, index) => {
       let vl = item[value] || (item._id ? (item._id.$oid || item._id) : null)
       let lb = item[label] || item.Ten
-      obj[index].value = vl
-      obj[index].label = lb
+      obj[`${index}`].value = vl
+      obj[`${index}`].label = lb
     })
   } else {
     let vl = obj[value] || (obj._id ? (obj._id.$oid || obj._id) : null)

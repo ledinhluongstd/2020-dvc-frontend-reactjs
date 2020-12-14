@@ -365,15 +365,15 @@ class TimKiemChiTiet extends Component {
         // ví dụ xuất excel tại bảng đang có
         let myRows = [[this.state.tendanhmuc || 'Danh mục Điện tử Quốc Gia']],
             maxCol = 0;
-        let table = ReactDOM.findDOMNode(this.refs[ref]);
+        let table = ReactDOM.findDOMNode(this.refs[`${ref}`]);
         for (let tbindex = 0; tbindex < table.children.length; tbindex++) {
-            let tb = table.children[tbindex];
+            let tb = table.children[`${tbindex}`];
             for (let trindex = 0; trindex < tb.children.length; trindex++) {
                 let row = [];
-                let tr = tb.children[trindex];
+                let tr = tb.children[`${trindex}`];
                 maxCol = tr.children.length > maxCol ? tr.children.length : maxCol;
                 for (let thindex = 0; thindex < tr.children.length; thindex++) {
-                    let th = tr.children[thindex];
+                    let th = tr.children[`${thindex}`];
                     row.push(th.innerText);
                 }
                 myRows.push(row);
@@ -515,7 +515,7 @@ class TimKiemChiTiet extends Component {
         let luachonSelected = new Array(
             cmFunction.clone(this.state.searchThuocTinh).length
         );
-        let thuoctinh = this.state.searchThuocTinh[index].ThuocTinh;
+        let thuoctinh = this.state.searchThuocTinh[`${index}`].ThuocTinh;
         thuoctinh.map((itemThuocTinh, indexThuocTinh) => {
             if (itemThuocTinh.KieuDuLieu.Ma == "select") {
                 itemThuocTinh.LuaChon.map((itemLuaChon, indexLuaChon) => {
@@ -524,12 +524,12 @@ class TimKiemChiTiet extends Component {
                     }
                 });
             } else {
-                luachonSelected[index] = [];
+                luachonSelected[`${index}`] = [];
             }
         });
-        this.state.formModal = cmFunction.clone(this.state.searchThuocTinh[index]);
+        this.state.formModal = cmFunction.clone(this.state.searchThuocTinh[`${index}`]);
         this.state.thuoctinhBanGhi = cmFunction.clone(
-            this.state.searchThuocTinh[index].ThuocTinh
+            this.state.searchThuocTinh[`${index}`].ThuocTinh
         );
         this.state.modalIsOpen = true;
         this.forceUpdate();
@@ -554,7 +554,7 @@ class TimKiemChiTiet extends Component {
                                 readOnly={true}
                                 label={item.Ten || ""}
                                 placeholder=""
-                                defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ""}
+                                defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ""}
                             />
                         </FormWrapper>
                     );
@@ -569,7 +569,7 @@ class TimKiemChiTiet extends Component {
                                 readOnly={true}
                                 label={item.Ten || ""}
                                 placeholder=""
-                                defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ""}
+                                defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ""}
                             />
                         </FormWrapper>
                     );
@@ -584,7 +584,7 @@ class TimKiemChiTiet extends Component {
                                 readOnly={true}
                                 label={item.Ten || ""}
                                 placeholder=""
-                                defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ""}
+                                defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ""}
                             />
                         </FormWrapper>
                     );
@@ -595,7 +595,7 @@ class TimKiemChiTiet extends Component {
                                 type="select"
                                 isDisabled={true}
                                 required={false}
-                                defaultValue={this.state.thuoctinhBanGhi[index] || ""}
+                                defaultValue={this.state.thuoctinhBanGhi[`${index}`] || ""}
                                 isClearable={true}
                                 isSearchable={true}
                                 defaultOptions={true}

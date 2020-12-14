@@ -45,7 +45,7 @@ class Home extends Component {
     });
     sortTopSuccess.map((item, index) => {
       let found = dichvu.find(element => element.Url.Ma === item.Url);
-      sortTopSuccess[index].DichVu = found
+      sortTopSuccess[`${index}`].DichVu = found
     })
     this.state.topSuccess = sortTopSuccess
     let sortTopSuccessUnit = countTopSuccessUnit.data
@@ -56,7 +56,7 @@ class Home extends Component {
     });
     sortTopSuccessUnit.map((item, index) => {
       let found = donvi.find(element => element.Ma === item.Unit);
-      sortTopSuccessUnit[index].DonVi = found
+      sortTopSuccessUnit[`${index}`].DonVi = found
     })
     this.state.topUnit = sortTopSuccessUnit
     countDichVu = countDichVu && countDichVu._size ? countDichVu._size : 0;

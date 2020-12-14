@@ -127,16 +127,16 @@ class ChiTiet extends Component {
             year.push(nam)
         }
         for (let y = 0; y < 5; y++) {
-            let firstofYear = this._getfirstday(year[y], 0)
-            let lastofYear = this._getlastday(year[y], 12)
+            let firstofYear = this._getfirstday(year[`${y}`], 0)
+            let lastofYear = this._getlastday(year[`${y}`], 12)
             let query = `Url=${urlQuery}&TuNgay=${firstofYear}&ToiNgay=${lastofYear}`
             let countSuccessOrError = await dashboardServices.statisticalSuccessOrErrorServiceByTime(query)
-            ERROR[y] = 0;
-            SUCCESS[y] = 0
+            ERROR[`${y}`] = 0;
+            SUCCESS[`${y}`] = 0
             let data = countSuccessOrError.data
             data.forEach(item => {
-                if (item.KQ === "ERROR") { ERROR[y] = item.count }
-                if (item.KQ === "SUCCESS") { SUCCESS[y] = item.count }
+                if (item.KQ === "ERROR") { ERROR[`${y}`] = item.count }
+                if (item.KQ === "SUCCESS") { SUCCESS[`${y}`] = item.count }
             })
         }
         this.state.dataYear = this._pushData(year, SUCCESS, ERROR)

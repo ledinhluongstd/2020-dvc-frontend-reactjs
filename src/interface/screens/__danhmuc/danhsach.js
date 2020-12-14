@@ -136,9 +136,9 @@ class DanhSach extends Component {
     return flag
   }
   _handleChangeCheckBox = (index) => {
-    let check = this.state.luachon[index]
+    let check = this.state.luachon[`${index}`]
     check = !check
-    this.state.luachon[index] = check
+    this.state.luachon[`${index}`] = check
     if (index == 11) {
       for (let i = 0; i < 11; i++) {
         this.state.luachon[i] = check
@@ -430,15 +430,15 @@ class DanhSach extends Component {
   _handleExportExcel = (ref) => {
     // ví dụ xuất excel tại bảng đang có
     let myRows = [], maxCol = 0
-    let table = ReactDOM.findDOMNode(this.refs[ref]);
+    let table = ReactDOM.findDOMNode(this.refs[`${ref}`]);
     for (let tbindex = 0; tbindex < table.children.length; tbindex++) {
-      let tb = table.children[tbindex]
+      let tb = table.children[`${tbindex}`]
       for (let trindex = 0; trindex < tb.children.length; trindex++) {
         let row = []
-        let tr = tb.children[trindex]
+        let tr = tb.children[`${trindex}`]
         maxCol = tr.children.length > maxCol ? tr.children.length : maxCol
         for (let thindex = 0; thindex < tr.children.length; thindex++) {
-          let th = tr.children[thindex]
+          let th = tr.children[`${thindex}`]
           row.push(th.innerText)
         }
         myRows.push(row)

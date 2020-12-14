@@ -193,7 +193,7 @@ class ChiTiet extends Component {
   }
 
   _handleEditOptions = (index) => {
-    this.state.formModal = cmFunction.clone(this.state.tbKieudulieu[index])
+    this.state.formModal = cmFunction.clone(this.state.tbKieudulieu[`${index}`])
     this.state.modalEditIndex = index
     this.state.modalIsOpen = true
     this.forceUpdate()

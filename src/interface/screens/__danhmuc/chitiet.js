@@ -103,12 +103,12 @@ class ChiTiet extends Component {
           if (item.KieuDuLieu.Ma == "select") {
             item.LuaChon = item.LuaChon.map((itemLuaChon, indexLuaChon) => {
               if (itemLuaChon.Checked == true) {
-                luachonSelected[index] = itemLuaChon
+                luachonSelected[`${index}`] = itemLuaChon
               }
             })
           }
           else {
-            luachonSelected[index] = []
+            luachonSelected[`${index}`] = []
           }
         })
         this.state.luachonSelected = luachonSelected
@@ -150,9 +150,9 @@ class ChiTiet extends Component {
     this.forceUpdate();
   };
   _handleChangeCheckBox = (indexCheck, index) => {
-    let check = this.state.thuoctinhBanGhi[index].LuaChon[indexCheck].Checked
+    let check = this.state.thuoctinhBanGhi[`${index}`].LuaChon[indexCheck].Checked
     check = !check
-    this.state.thuoctinhBanGhi[index].LuaChon[indexCheck].Checked = check
+    this.state.thuoctinhBanGhi[`${index}`].LuaChon[indexCheck].Checked = check
     this.forceUpdate()
   }
   _handleChangeRadio = (indexCheck, index, item) => {
@@ -169,7 +169,7 @@ class ChiTiet extends Component {
       arr[indexLuaChon] = item
     })
     luachon = arr
-    this.state.thuoctinhBanGhi[index].LuaChon = luachon
+    this.state.thuoctinhBanGhi[`${index}`].LuaChon = luachon
     this.forceUpdate()
   }
   _handleNhomDanhMucChange = (sel) => {
@@ -186,10 +186,10 @@ class ChiTiet extends Component {
           itemLuaChon.Checked = false
           item.LuaChon[indexLuaChon] = itemLuaChon
         })
-        arr[index] = item
+        arr[`${index}`] = item
       }
       else {
-        arr[index] = item
+        arr[`${index}`] = item
       }
     })
     thuoctinh = arr
@@ -217,7 +217,7 @@ class ChiTiet extends Component {
   }
   _handleLSelectChange = (sel, index) => {
     let luachonSelected = cmFunction.clone(sel)
-    let luachon = cmFunction.clone(this.state.thuoctinh[index].LuaChon)
+    let luachon = cmFunction.clone(this.state.thuoctinh[`${index}`].LuaChon)
     luachon = cmFunction.convertSelectOptions(luachon, "GiaTri", "TieuDe")
     let arr = []
     luachon = luachon.map((item, index) => {
@@ -227,11 +227,11 @@ class ChiTiet extends Component {
       else {
         item.Checked = false
       }
-      arr[index] = item
+      arr[`${index}`] = item
     })
     luachon = arr
-    this.state.thuoctinhBanGhi[index].LuaChon = luachon
-    this.state.luachonSelected[index] = luachonSelected
+    this.state.thuoctinhBanGhi[`${index}`].LuaChon = luachon
+    this.state.luachonSelected[`${index}`] = luachonSelected
     this.forceUpdate()
   }
   _handleChangeVanBanSuaDoi = (evt) => {
@@ -293,9 +293,9 @@ class ChiTiet extends Component {
     }, 500);
   };
   _handleLoadTieuDeOptions = (inputValue, callback, index) => {
-    clearTimeout(this.state.TimeOut[index].searchTieuDeTimeout);
-    this.state.TimeOut[index].searchTieuDeTimeout = setTimeout(async () => {
-      let nhomtieude = cmFunction.clone(this.state.thuoctinh[index].LuaChon)
+    clearTimeout(this.state.TimeOut[`${index}`].searchTieuDeTimeout);
+    this.state.TimeOut[`${index}`].searchTieuDeTimeout = setTimeout(async () => {
+      let nhomtieude = cmFunction.clone(this.state.thuoctinh[`${index}`].LuaChon)
       nhomtieude = cmFunction.convertSelectOptions(nhomtieude, 'GiaTri', 'TieuDe')
       this.forceUpdate()
       callback(nhomtieude);
@@ -945,11 +945,11 @@ class ChiTiet extends Component {
             itemLuaChon.Checked = false
             item.LuaChon[indexLuaChon] = itemLuaChon
           })
-          thuoctinh[index] = item
+          thuoctinh[`${index}`] = item
         }
         else {
           item.LuaChon = ""
-          thuoctinh[index] = item
+          thuoctinh[`${index}`] = item
         }
       })
       this.state.saveAction = true
@@ -964,7 +964,7 @@ class ChiTiet extends Component {
   }
   _handleEditOptions = (index) => {
     let tbBanGhi = cmFunction.clone(this.state.tbBanGhi)
-    let thuoctinh = tbBanGhi[index].ThuocTinh
+    let thuoctinh = tbBanGhi[`${index}`].ThuocTinh
     let luachonSelected = new Array(cmFunction.clone(thuoctinh.length))
     thuoctinh.map((itemThuocTinh, indexThuocTinh) => {
       if (itemThuocTinh.KieuDuLieu.Ma == "select") {
@@ -981,8 +981,8 @@ class ChiTiet extends Component {
     })
     this.state.saveAction = false
     this.state.luachonSelected = luachonSelected
-    this.state.formModal = cmFunction.clone(tbBanGhi[index])
-    this.state.thuoctinhBanGhi = cmFunction.clone(tbBanGhi[index].ThuocTinh)
+    this.state.formModal = cmFunction.clone(tbBanGhi[`${index}`])
+    this.state.thuoctinhBanGhi = cmFunction.clone(tbBanGhi[`${index}`].ThuocTinh)
     this.state.modalEditIndex = index
     this.state.modalIsOpen = true
     this.forceUpdate()
@@ -1041,11 +1041,11 @@ class ChiTiet extends Component {
                 itemLuaChon.Checked = false
                 item.LuaChon[indexLuaChon] = itemLuaChon
               })
-              thuoctinh[index] = item
+              thuoctinh[`${index}`] = item
             }
             else {
               item.LuaChon = ""
-              thuoctinh[index] = item
+              thuoctinh[`${index}`] = item
             }
           })
           this.state.formModal = {}
@@ -1295,11 +1295,11 @@ class ChiTiet extends Component {
           itemLuaChon.Checked = false
           item.LuaChon[indexLuaChon] = itemLuaChon
         })
-        thuoctinhMau[index] = item
+        thuoctinhMau[`${index}`] = item
       }
       else {
         item.LuaChon = ""
-        thuoctinhMau[index] = item
+        thuoctinhMau[`${index}`] = item
       }
     })
     if (rows.length > 1) {
@@ -1428,10 +1428,10 @@ class ChiTiet extends Component {
                     itemLuaChon.Checked = false
                     item.LuaChon[indexLuaChon] = itemLuaChon
                   })
-                  thuoctinh[index] = item
+                  thuoctinh[`${index}`] = item
                 }
                 else {
-                  thuoctinh[index] = item
+                  thuoctinh[`${index}`] = item
                 }
               })
               thuoctinhMau = cmFunction.clone(thuoctinh)
@@ -1717,7 +1717,7 @@ class ChiTiet extends Component {
               readOnly={false}
               label={item.Ten || ''}
               placeholder=""
-              defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ''}
+              defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ''}
               onChange={this._handleChangeThuocTinh}
             />
           </FormWrapper>
@@ -1731,7 +1731,7 @@ class ChiTiet extends Component {
               readOnly={false}
               label={item.Ten || ''}
               placeholder=""
-              defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ''}
+              defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ''}
               onChange={this._handleChangeThuocTinh}
             />
           </FormWrapper>
@@ -1745,7 +1745,7 @@ class ChiTiet extends Component {
               readOnly={false}
               label={item.Ten || ''}
               placeholder=""
-              defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ''}
+              defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ''}
               onChange={this._handleChangeThuocTinh}
             />
           </FormWrapper>
@@ -1756,7 +1756,7 @@ class ChiTiet extends Component {
               loadOptions={(e, v) => this._handleLoadTieuDeOptions(e, v, index)}
               onChange={(e) => this._handleLSelectChange(e, index)}
               required={false}
-              defaultValue={luachonSelected[index]}
+              defaultValue={luachonSelected[`${index}`]}
               isClearable={true}
               isSearchable={true}
               defaultOptions={true}

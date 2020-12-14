@@ -48,7 +48,7 @@ class ChiTiet extends Component {
         this.state.form = data;
         danhsach.forEach((item, index) => {
           QuyenChucNang.forEach((qcn) => {
-            if (item.Ma === qcn.Ma) danhsach[index] = qcn;
+            if (item.Ma === qcn.Ma) danhsach[`${index}`] = qcn;
           });
         });
         this.state.danhsach = danhsach;
@@ -82,15 +82,15 @@ class ChiTiet extends Component {
 
   _handleCheckAll = (evt, method) => {
     this.state.danhsach.forEach((item, index) => {
-      item.HanhDong[method] = evt.target.checked;
+      item.HanhDong[`${method}`] = evt.target.checked;
     });
-    this.state.cbCheckAll[method] = evt.target.checked;
+    this.state.cbCheckAll[`${method}`] = evt.target.checked;
     this.forceUpdate();
   };
 
   _handleCheckItem = (evt, data, method) => {
     this.state.danhsach.forEach((item, index) => {
-      if (item.Ma === data.Ma) item.HanhDong[method] = evt.target.checked;
+      if (item.Ma === data.Ma) item.HanhDong[`${method}`] = evt.target.checked;
     });
     this.forceUpdate();
   };

@@ -142,7 +142,7 @@ class Danhsach extends Component {
     }
     _handleOpenModal = (index) => {
         let luachonSelected = new Array(cmFunction.clone(this.state.searchDanhmuc).length)
-        let thuoctinh = this.state.searchDanhmuc[index].ThuocTinh
+        let thuoctinh = this.state.searchDanhmuc[`${index}`].ThuocTinh
         thuoctinh.map((itemThuocTinh, indexThuocTinh) => {
             if (itemThuocTinh.KieuDuLieu.Ma == "select") {
                 itemThuocTinh.LuaChon.map((itemLuaChon, indexLuaChon) => {
@@ -152,11 +152,11 @@ class Danhsach extends Component {
                 })
             }
             else {
-                luachonSelected[index] = []
+                luachonSelected[`${index}`] = []
             }
         })
-        this.state.formModal = cmFunction.clone(this.state.searchDanhmuc[index])
-        this.state.thuoctinhBanGhi = cmFunction.clone(this.state.searchDanhmuc[index].ThuocTinh)
+        this.state.formModal = cmFunction.clone(this.state.searchDanhmuc[`${index}`])
+        this.state.thuoctinhBanGhi = cmFunction.clone(this.state.searchDanhmuc[`${index}`].ThuocTinh)
         this.state.modalIsOpen = true
         this.forceUpdate()
     }
@@ -170,15 +170,15 @@ class Danhsach extends Component {
     // _handleExportExcel = (ref) => {
     //     // ví dụ xuất excel tại bảng đang có
     //     let myRows = [[this.state.danhsach.Ten]], maxCol = 0
-    //     let table = ReactDOM.findDOMNode(this.refs[ref]);
+    //     let table = ReactDOM.findDOMNode(this.refs[`${ref}`]);
     //     for (let tbindex = 0; tbindex < table.children.length; tbindex++) {
-    //         let tb = table.children[tbindex]
+    //         let tb = table.children[`${tbindex}`]
     //         for (let trindex = 0; trindex < tb.children.length; trindex++) {
     //             let row = []
-    //             let tr = tb.children[trindex]
+    //             let tr = tb.children[`${trindex}`]
     //             maxCol = tr.children.length > maxCol ? tr.children.length : maxCol
     //             for (let thindex = 0; thindex < tr.children.length; thindex++) {
-    //                 let th = tr.children[thindex]
+    //                 let th = tr.children[`${thindex}`]
     //                 row.push(th.innerText)
     //             }
     //             myRows.push(row)
@@ -202,15 +202,15 @@ class Danhsach extends Component {
     _handleExportExcel = (ref) => {
         // ví dụ xuất excel tại bảng đang có
         let myRows = [], maxCol = 0
-        let table = ReactDOM.findDOMNode(this.refs[ref]);
+        let table = ReactDOM.findDOMNode(this.refs[`${ref}`]);
         for (let tbindex = 0; tbindex < table.children.length; tbindex++) {
-          let tb = table.children[tbindex]
+          let tb = table.children[`${tbindex}`]
           for (let trindex = 0; trindex < tb.children.length; trindex++) {
             let row = []
-            let tr = tb.children[trindex]
+            let tr = tb.children[`${trindex}`]
             maxCol = tr.children.length > maxCol ? tr.children.length : maxCol
             for (let thindex = 0; thindex < tr.children.length-1; thindex++) {
-              let th = tr.children[thindex]
+              let th = tr.children[`${thindex}`]
               row.push(th.innerText)
             }
             myRows.push(row)
@@ -318,7 +318,7 @@ class Danhsach extends Component {
                             readOnly={true}
                             label={item.Ten || ''}
                             placeholder=""
-                            defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ''}
+                            defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ''}
                         />
                     </FormWrapper>
                 case 'number':
@@ -331,7 +331,7 @@ class Danhsach extends Component {
                             readOnly={true}
                             label={item.Ten || ''}
                             placeholder=""
-                            defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ''}
+                            defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ''}
                         />
                     </FormWrapper>
                 case 'date':
@@ -344,7 +344,7 @@ class Danhsach extends Component {
                             readOnly={true}
                             label={item.Ten || ''}
                             placeholder=""
-                            defaultValue={this.state.thuoctinhBanGhi[index].LuaChon || ''}
+                            defaultValue={this.state.thuoctinhBanGhi[`${index}`].LuaChon || ''}
                         />
                     </FormWrapper>
                 case "select":
@@ -353,7 +353,7 @@ class Danhsach extends Component {
                             type="select"
                             isDisabled={true}
                             required={false}
-                            defaultValue={this.state.thuoctinhBanGhi[index] || ''}
+                            defaultValue={this.state.thuoctinhBanGhi[`${index}`] || ''}
                             isClearable={true}
                             isSearchable={true}
                             defaultOptions={true}

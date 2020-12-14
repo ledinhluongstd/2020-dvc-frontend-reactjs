@@ -71,7 +71,7 @@ class InputSearch extends Component {
   suggestionsClick = async (item) => {
     let { onChange, id, keyLabel } = this.props
     this.state.listSuggestions = []
-    this.state.form = item[keyLabel]
+    this.state.form = item[`${keyLabel}`]
     this.forceUpdate()
     let evt = { target: { id: id, value: item } }
     onChange(evt)
@@ -108,7 +108,7 @@ class InputSearch extends Component {
           {!!listSuggestions.length ? <div className='list-gmap-address-suggestions' style={{ width:'max-content'}}>
             {listSuggestions.map((item, index) => {
               return <span className="suggestions-item" key={index} onClick={() => this.suggestionsClick(item)}>
-                *&nbsp;{item[keyLabel]}
+                *&nbsp;{item[`${keyLabel}`]}
               </span>
             })}
           </div> : null}

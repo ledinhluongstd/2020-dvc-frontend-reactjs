@@ -185,11 +185,11 @@ function insertParam(key, value, history) {
   let i = kvp.length;
   let x;
   while (i--) {
-    x = kvp[i].split('=');
+    x = kvp[`${i}`].split('=');
     if (x[0] == key) {
       if (value) {
         x[1] = value;
-        kvp[i] = x.join('=');
+        kvp[`${i}`] = x.join('=');
         break;
       } else {
         for (let j = i; j < kvp.length - 1; j++) {
@@ -225,7 +225,7 @@ async function insertMultiParams(listParams, history) {
   }
 
   for (let i = 0; i < listParams.length; i++) {
-    const param = listParams[i];
+    const param = listParams[`${i}`];
     if (param[0] && param[1]) {
       const key = param[0];
       const value = param[1];
@@ -263,7 +263,7 @@ function formChildValidate(tag) {
   let count = 0;
   if (tag.children.length <= 0) return count;
   for (let i = tag.children.length - 1; i >= 0; i--) {
-    let element = tag.children[i]
+    let element = tag.children[`${i}`]
     let name = element.getAttribute("name");
     if (name === CONSTANTS.LABEL_VALID_ERROR_NAME) {
       return 1
@@ -277,8 +277,8 @@ function formChildValidate(tag) {
 function findCommonElements2(arr1, arr2) {
   let obj = {};
   for (let i = 0; i < arr1.length; i++) {
-    if (!obj[arr1[i]]) {
-      const element = arr1[i];
+    if (!obj[arr1[`${i}`]]) {
+      const element = arr1[`${i}`];
       obj[element] = true;
     }
   }

@@ -192,7 +192,7 @@ function stiTree(A, e, t, o) {
         nlMinus: "img/nolines_minus.gif"
     };
     for (var i in o)
-        this.icon[i] = o[i];
+        this.icon[`${i}`] = o[`${i}`];
     this.obj = A,
     this.mobileViewerId = e,
     this.currentPageNumber = t,
@@ -1347,7 +1347,7 @@ StiJsViewer.prototype.showFindLabels = function(A) {
     this.options.changeFind = !1,
     this.controls.findHelper.lastFindText = A;
     for (var e = this.controls.findPanel && this.controls.findPanel.controls.matchCase.isSelected, t = this.controls.findPanel && this.controls.findPanel.controls.matchWholeWord.isSelected, o = this.controls.reportPanel.pages, i = 0; i < o.length; i++) {
-        var s = o[i]
+        var s = o[`${i}`]
           , n = s.getElementsByTagName("*");
         for (k = 0; k < n.length; k++) {
             var a = n[k].innerHTML;
@@ -1397,7 +1397,7 @@ StiJsViewer.prototype.selectFindLabel = function(A) {
 StiJsViewer.prototype.scrollToPage = function(A) {
     var e = 0;
     for (i = 0; i < A; i++)
-        e += this.controls.reportPanel.pages[i].offsetHeight + 20;
+        e += this.controls.reportPanel.pages[`${i}`].offsetHeight + 20;
     this.options.appearance.scrollbarsMode || (e += this.FindPosY(this.controls.reportPanel, null, !0));
     var t = new Date
       , o = t.getTime() + this.options.scrollDuration;
@@ -1797,8 +1797,8 @@ StiJsViewer.prototype.UpdateAllHyperLinks = function() {
     var aHyperlinks = this.controls.reportPanel.getElementsByTagName("a");
     if (this.controls.bookmarksPanel)
         for (var aBookmarks = this.controls.bookmarksPanel.getElementsByTagName("a"), i = 0; i < aHyperlinks.length; i++)
-            aHyperlinks[i].getAttribute("href") && (aHyperlinks[i].anchorName = aHyperlinks[i].getAttribute("href").replace("#", ""),
-            aHyperlinks[i].onclick = function() {
+            aHyperlinks[`${i}`].getAttribute("href") && (aHyperlinks[`${i}`].anchorName = aHyperlinks[`${i}`].getAttribute("href").replace("#", ""),
+            aHyperlinks[`${i}`].onclick = function() {
                 for (var k = 0; k < aBookmarks.length; k++) {
                     var clickFunc = aBookmarks[k].getAttribute("onclick");
                     if (clickFunc && clickFunc.indexOf("'" + this.anchorName + "'") > 0)
@@ -2539,7 +2539,7 @@ StiJsViewer.prototype.InitializeDatePicker = function(A) {
     for (var i = 0; i < 7; i++) {
         var s = e.daysTable.addCell();
         s.className = "stiJsViewerDatePickerDayOfWeekCell";
-        var n = this.collections.loc["Day" + this.collections.dayOfWeek[i]];
+        var n = this.collections.loc["Day" + this.collections.dayOfWeek[`${i}`]];
         n && (s.innerHTML = n.toString().substring(0, 1).toUpperCase()),
         i == ("Sunday" == this.options.appearance.datePickerFirstDayOfWeek ? 6 : 5) && (s.style.color = "#0000ff"),
         i == ("Sunday" == this.options.appearance.datePickerFirstDayOfWeek ? 0 : 6) && (s.style.color = "#ff0000")
@@ -2586,7 +2586,7 @@ StiJsViewer.prototype.InitializeDatePicker = function(A) {
         for (var i = 0; i < 42; i++) {
             var s = i - o + 1
               , n = s == this.key.getDate()
-              , a = this.dayButtons[i];
+              , a = this.dayButtons[`${i}`];
             i < o || i - o > t - 1 ? (a.caption.innerHTML = "",
             a.setEnabled(!1)) : (a.numberOfDay = s,
             a.caption.innerHTML = s,
@@ -2790,7 +2790,7 @@ StiJsViewer.prototype.InitializeDrillDownPanel = function() {
           , s = A.jsObject.SmallButton(i, e);
         s.style.display = "inline-block",
         s.reportParams = t ? t : this.reportParams = {},
-        A.buttons[i] = s,
+        A.buttons[`${i}`] = s,
         s.style.margin = "2px 1px 2px 2px";
         var n = o.addCell(s);
         if (n.style.padding = "0px",
@@ -4219,12 +4219,12 @@ StiJsViewer.prototype.parameterMenuForEditList = function(A) {
         for (this.parameter.params.items = {},
         this.parameter.controls.firstTextBox.value = "",
         i = 0; i < this.itemsContainer.childNodes.length; i++)
-            itemMenu = this.itemsContainer.childNodes[i],
-            this.parameter.params.items[i] = {},
-            this.parameter.params.items[i].key = "DateTime" == this.parameter.params.type ? itemMenu.key : itemMenu.textBox.value,
-            this.parameter.params.items[i].value = itemMenu.value,
+            itemMenu = this.itemsContainer.childNodes[`${i}`],
+            this.parameter.params.items[`${i}`] = {},
+            this.parameter.params.items[`${i}`].key = "DateTime" == this.parameter.params.type ? itemMenu.key : itemMenu.textBox.value,
+            this.parameter.params.items[`${i}`].value = itemMenu.value,
             "" != this.parameter.controls.firstTextBox.value && (this.parameter.controls.firstTextBox.value += ";"),
-            this.parameter.controls.firstTextBox.value += this.parameter.jsObject.getStringKey(this.parameter.params.items[i].key, this.parameter);
+            this.parameter.controls.firstTextBox.value += this.parameter.jsObject.getStringKey(this.parameter.params.items[`${i}`].key, this.parameter);
         this.parameter.menu.innerTable.offsetHeight > 400 ? this.parameter.menu.style.height = "350px;" : this.parameter.menu.style.height = this.parameter.menu.innerTable.offsetHeight + "px"
     }
     ;
@@ -4249,7 +4249,7 @@ StiJsViewer.prototype.parameterMenuForEditList = function(A) {
     var o = e.innerTable.addCellInNextRow();
     e.itemsContainer = o;
     for (var i in A.params.items)
-        o.appendChild(e.newItem(A.params.items[i], A));
+        o.appendChild(e.newItem(A.params.items[`${i}`], A));
     var s = e.innerTable.addCellInNextRow()
       , n = this.parameterMenuItem(A);
     s.appendChild(n),
@@ -5431,7 +5431,7 @@ StiJsViewer.prototype.InitializeExportForm = function() {
             s.style.padding = "0 8px 0 8px",
             s.style.minWidth = "150px",
             e && (s.innerHTML = e),
-            A.labels[i] = s;
+            A.labels[`${i}`] = s;
             var a = t.getAttribute("title");
             null != a && s.setAttribute("title", a)
         } else
@@ -5444,7 +5444,7 @@ StiJsViewer.prototype.InitializeExportForm = function() {
           , s = t[o][1]
           , n = t[o][2]
           , a = t[o][3];
-        if (A.controls[i] = n,
+        if (A.controls[`${i}`] = n,
         t[o][4] && (n.style.margin = t[o][4]),
         "stiJsViewerGroupPanel" == n.className && (n.container.style.paddingBottom = "6px"),
         "DocumentSecurityMenu" == i || "DigitalSignatureMenu" == i)
@@ -5826,10 +5826,10 @@ StiJsViewer.prototype.InitializeSendEmailForm = function(A) {
       , o = this.CreateHTMLTable();
     e.container.appendChild(o);
     for (var i = 0; i < t.length; i++) {
-        var s = t[i][2];
+        var s = t[`${i}`][2];
         s.style.margin = "4px",
-        e.controls[t[i][0]] = s,
-        o.addTextCellInLastRow(t[i][1]).className = "stiJsViewerCaptionControls",
+        e.controls[t[`${i}`][0]] = s,
+        o.addTextCellInLastRow(t[`${i}`][1]).className = "stiJsViewerCaptionControls",
         o.addCellInLastRow(s),
         i < t.length - 1 && o.addRow()
     }
@@ -6657,7 +6657,7 @@ StiJsViewer.prototype.parseParameters = function(A) {
         t.changeVisibleState(!0);
         var o = !1;
         for (var i in t.buttons) {
-            var s = t.buttons[i];
+            var s = t.buttons[`${i}`];
             if (s.reportParams.reportGuid == e.reportGuid && s.reportParams.drillDownGuid == e.drillDownGuid) {
                 o = !0,
                 s.style.display = "inline-block",
@@ -7444,7 +7444,7 @@ var Stimulsoft;
                     g.loadFile(l));
                 else {
                     for (var m = 0, u = e.pages.list; m < u.length; m++) {
-                        var d = u[m];
+                        var d = u[`${m}`];
                         d.guid == s ? (p = d,
                         d.enabled = !0,
                         d.skip = !1) : d.enabled = !1
@@ -7667,7 +7667,7 @@ var Stimulsoft;
             t.applyReportBindingVariables = function(t, r) {
                 for (var o in r)
                     for (var i = 0, n = t.dictionary.variables.list; i < n.length; i++) {
-                        var a = n[i];
+                        var a = n[`${i}`];
                         a.name == o && (a.value = e.System.Convert.toString(r[o])),
                         null != a.dialogInfo.bindingVariable && a.dialogInfo.bindingVariable.name == o && (a.dialogInfo.bindingVariable.value = e.System.Convert.toString(r[o]))
                     }
@@ -7842,7 +7842,7 @@ var Stimulsoft;
                     null != i.dialogInfo.keys && 0 != i.dialogInfo.keys.length || (i.dialogInfo.keys = T.toArray())
                 } else if (i.type == e.System.StimulsoftFloatList || i.type == e.System.StimulsoftDoubleList || i.type == e.System.StimulsoftDecimalList || i.type == e.System.StimulsoftByteList || i.type == e.System.StimulsoftShortList || i.type == e.System.StimulsoftLongList) {
                     for (var T = [], I = 0, D = l; I < D.length; I++) {
-                        var p = D[I];
+                        var p = D[`${i}`];
                         T.add(p.toNumber())
                     }
                     t.setVariable(r, T),
@@ -7868,7 +7868,7 @@ var Stimulsoft;
                     }).toArray())
                 } else if (i.type == e.System.StimulsoftBoolList) {
                     for (var T = [], M = 0, H = l; M < H.length; M++) {
-                        var p = H[M];
+                        var p = H[`${m}`];
                         T.add(p.toBoolean())
                     }
                     t.setVariable(r, T),
@@ -8382,7 +8382,7 @@ var Stimulsoft;
                 }
                 ,
                 this.jsObject.postExport = function(i, s, u) {
-                    var d = h[i]
+                    var d = h[`${i}`]
                       , c = null;
                     u == t.StiExportAction.SendEmail && (c = new t.StiEmailSettings,
                     c.email = s.Email,

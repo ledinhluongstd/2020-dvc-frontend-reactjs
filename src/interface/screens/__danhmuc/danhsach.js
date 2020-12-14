@@ -141,7 +141,7 @@ class DanhSach extends Component {
     this.state.luachon[`${index}`] = check
     if (index == 11) {
       for (let i = 0; i < 11; i++) {
-        this.state.luachon[i] = check
+        this.state.luachon[`${i}`] = check
       }
     }
 

@@ -150,14 +150,14 @@ class ChiTiet extends Component {
     this.forceUpdate();
   };
   _handleChangeCheckBox = (indexCheck, index) => {
-    let check = this.state.thuoctinhBanGhi[`${index}`].LuaChon[indexCheck].Checked
+    let check = this.state.thuoctinhBanGhi[`${index}`].LuaChon[`${indexCheck}`].Checked
     check = !check
-    this.state.thuoctinhBanGhi[`${index}`].LuaChon[indexCheck].Checked = check
+    this.state.thuoctinhBanGhi[`${index}`].LuaChon[`${indexCheck}`].Checked = check
     this.forceUpdate()
   }
   _handleChangeRadio = (indexCheck, index, item) => {
     let luachon = cmFunction.clone(item.LuaChon)
-    let luachonSelected = luachon[indexCheck]
+    let luachonSelected = luachon[`${indexCheck}`]
     let arr = []
     luachon = luachon.map((item, indexLuaChon) => {
       if (cmFunction.compareObject(item, luachonSelected)) {
@@ -326,10 +326,10 @@ class ChiTiet extends Component {
     return flag
   }
   _checkItemCheckBox = (item, indexCheck) => {
-    return item.LuaChon[indexCheck].Checked
+    return item.LuaChon[`${indexCheck}`].Checked
   }
   _checkItemRadio = (item, indexCheck) => {
-    return item.LuaChon[indexCheck].Checked
+    return item.LuaChon[`${indexCheck}`].Checked
   }
   _checkDanhMuc = async (Ma) => {
     let flag = false
@@ -971,12 +971,12 @@ class ChiTiet extends Component {
         let dsluachon = cmFunction.convertSelectOptions(itemThuocTinh.LuaChon, "TieuDe", "GiaTri")
         dsluachon.map((itemLuaChon, indexLuaChon) => {
           if (itemLuaChon.Checked == true) {
-            luachonSelected[indexThuocTinh] = itemLuaChon
+            luachonSelected[`${indexThuocTinh}`] = itemLuaChon
           }
         })
       }
       else {
-        luachonSelected[indexThuocTinh] = []
+        luachonSelected[`${indexThuocTinh}`] = []
       }
     })
     this.state.saveAction = false
@@ -1097,7 +1097,7 @@ class ChiTiet extends Component {
       if (item.KieuDuLieu.Ma == "select" || item.KieuDuLieu.Ma == "radio") {
         let luachonThuocTinh = ''
         for (let i = 0; i < item.LuaChon.length; i++) {
-          luachonThuocTinh += item.LuaChon[i].TieuDe + ','
+          luachonThuocTinh += item.LuaChon[`${i}`].TieuDe + ','
         }
         for (let i = 0; i < soLuongBanGhi + 100; i++) {
           ws.getCell(String.fromCharCode(67 + index + 1) + (2 + i)).dataValidation = {
@@ -1201,7 +1201,7 @@ class ChiTiet extends Component {
       if (item.KieuDuLieu.Ma == "select" || item.KieuDuLieu.Ma == "radio") {
         let luachonThuocTinh = ''
         for (let i = 0; i < item.LuaChon.length; i++) {
-          luachonThuocTinh += item.LuaChon[i].TieuDe + ','
+          luachonThuocTinh += item.LuaChon[`${i}`].TieuDe + ','
         }
         for (let i = 0; i < 100; i++) {
           ws.getCell(String.fromCharCode(76 + index + 1) + (2 + i)).dataValidation = {
@@ -1367,7 +1367,7 @@ class ChiTiet extends Component {
                     }
                   })
                 }
-                thuoctinh[indexThuocTinh] = itemThuocTinh
+                thuoctinh[`${indexThuocTinh}`] = itemThuocTinh
               })
               banghi.ThuocTinh = thuoctinh
               tbBanGhi.push(banghi)
@@ -1509,7 +1509,7 @@ class ChiTiet extends Component {
                         }
                       })
                     }
-                    thuoctinh[indexThuocTinh] = itemThuocTinh
+                    thuoctinh[`${indexThuocTinh}`] = itemThuocTinh
                   })
                   banghi.ThuocTinh = thuoctinh
                   tbBanGhi.push(banghi)
@@ -1574,7 +1574,7 @@ class ChiTiet extends Component {
                         }
                       })
                     }
-                    thuoctinh[indexThuocTinh] = itemThuocTinh
+                    thuoctinh[`${indexThuocTinh}`] = itemThuocTinh
                   })
                   banghi.ThuocTinh = thuoctinh
                   tbBanGhi.push(banghi)

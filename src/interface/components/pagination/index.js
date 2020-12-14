@@ -78,7 +78,7 @@ class Pagination extends Component {
         <div className="dropdown">
           <span>{`Hiển thị`}&nbsp;</span>
           <button className="btn btn-sm btn-outline-primary border-radius dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {CONSTANTS.PAGINATION_SIZE[pageSizeIndex].label}
+            {CONSTANTS.PAGINATION_SIZE[`${pageSizeIndex}`].label}
           </button>
           <span>&nbsp;{`dòng / trang`}</span>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">

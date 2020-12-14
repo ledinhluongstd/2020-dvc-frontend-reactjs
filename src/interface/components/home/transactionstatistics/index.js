@@ -75,7 +75,7 @@ class HomeTransactionStatistics extends Component {
       ['x', 'Thành công', 'Không thành công'],
     ]
     for (let i = data.length - 1; i >= 0; i--) {
-      array.push([data[i], SUCCESS[i], ERROR[i]])
+      array.push([data[`${i}`], SUCCESS[`${i}`], ERROR[`${i}`]])
     }
     return array
   }
@@ -95,12 +95,12 @@ class HomeTransactionStatistics extends Component {
       month.push(monthyear)
       let query = `TuNgay=${firstofMonth}&ToiNgay=${lastofMonth}`
       let countSuccessOrError = await dashboardServices.countSuccessOrError(query)
-      ERROR[m] = 0;
-      SUCCESS[m] = 0
+      ERROR[`${m}`] = 0;
+      SUCCESS[`${m}`] = 0
       let data = countSuccessOrError.data
       data.forEach(item => {
-        if (item.KQ === "ERROR") { ERROR[m] = item.count }
-        if (item.KQ === "SUCCESS") { SUCCESS[m] = item.count }
+        if (item.KQ === "ERROR") { ERROR[`${m}`] = item.count }
+        if (item.KQ === "SUCCESS") { SUCCESS[`${m}`] = item.count }
       })
     }
     this.state.dataMonth = this._pushData(month, SUCCESS, ERROR)
@@ -125,12 +125,12 @@ class HomeTransactionStatistics extends Component {
         week.push(w + '.' + year)
         let query = this._querybyWeek(year, w)
         let countSuccessOrError = await dashboardServices.countSuccessOrError(query)
-        ERROR[m] = 0;
-        SUCCESS[m] = 0
+        ERROR[`${m}`] = 0;
+        SUCCESS[`${m}`] = 0
         let data = countSuccessOrError.data
         data.forEach(item => {
-          if (item.KQ === "ERROR") { ERROR[m] = item.count }
-          if (item.KQ === "SUCCESS") { SUCCESS[m] = item.count }
+          if (item.KQ === "ERROR") { ERROR[`${m}`] = item.count }
+          if (item.KQ === "SUCCESS") { SUCCESS[`${m}`] = item.count }
         })
       }
     } else {
@@ -142,12 +142,12 @@ class HomeTransactionStatistics extends Component {
         let countSuccessOrError = await dashboardServices.countSuccessOrError(
           query
         );
-        ERROR[m] = 0;
-        SUCCESS[m] = 0
+        ERROR[`${m}`] = 0;
+        SUCCESS[`${m}`] = 0
         let data = countSuccessOrError.data
         data.forEach(item => {
-          if (item.KQ === "ERROR") { ERROR[m] = item.count }
-          if (item.KQ === "SUCCESS") { SUCCESS[m] = item.count }
+          if (item.KQ === "ERROR") { ERROR[`${m}`] = item.count }
+          if (item.KQ === "SUCCESS") { SUCCESS[`${m}`] = item.count }
         })
       }
       let yearBefore = year - 1
@@ -155,12 +155,12 @@ class HomeTransactionStatistics extends Component {
         week.push(wb + '.' + yearBefore)
         let query = this._querybyWeek(yearBefore, wb);
         let countSuccessOrError = await dashboardServices.countSuccessOrError(query);
-        ERROR[m] = 0;
-        SUCCESS[m] = 0
+        ERROR[`${m}`] = 0;
+        SUCCESS[`${m}`] = 0
         let data = countSuccessOrError.data
         data.forEach(item => {
-          if (item.KQ === "ERROR") { ERROR[m] = item.count }
-          if (item.KQ === "SUCCESS") { SUCCESS[m] = item.count }
+          if (item.KQ === "ERROR") { ERROR[`${m}`] = item.count }
+          if (item.KQ === "SUCCESS") { SUCCESS[`${m}`] = item.count }
         })
       }
     }

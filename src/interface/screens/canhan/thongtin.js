@@ -34,7 +34,7 @@ class ThongTin extends Component {
   }
 
   _handleData = (prop, val) => {
-    this.state.user[prop] = val
+    this.state.user[`${prop}`] = val
     this.forceUpdate()
   }
 

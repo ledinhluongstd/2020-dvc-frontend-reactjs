@@ -115,11 +115,11 @@
           let myObj = new Date(h).toString()
           let hoursssss= new Date(myObj)
           let query = `TuNgay=${bh}&ToiNgay=${h}`
-          count[i] = 0
+          count[`${i}`] = 0
           let countSuccessOrError = await dashboardServices.countSuccessOrError(query)
           let data = countSuccessOrError.data
           data.forEach((item) => {
-            count[i] = count[i] + item.count
+            count[`${i}`] = count[`${i}`] + item.count
           })
           let hhh = hoursssss.getHours()
           h=bh

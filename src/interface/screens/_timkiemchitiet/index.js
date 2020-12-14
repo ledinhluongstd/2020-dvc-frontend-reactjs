@@ -520,7 +520,7 @@ class TimKiemChiTiet extends Component {
             if (itemThuocTinh.KieuDuLieu.Ma == "select") {
                 itemThuocTinh.LuaChon.map((itemLuaChon, indexLuaChon) => {
                     if (itemLuaChon.Checked == true) {
-                        luachonSelected[indexThuocTinh] = itemLuaChon;
+                        luachonSelected[`${indexThuocTinh}`] = itemLuaChon;
                     }
                 });
             } else {
@@ -638,7 +638,7 @@ class TimKiemChiTiet extends Component {
         });
     };
     _checkItemRadio = (item, indexCheck) => {
-        return item.LuaChon[indexCheck].Checked;
+        return item.LuaChon[`${indexCheck}`].Checked;
     };
 
     _Danhmucdungchung = () => {

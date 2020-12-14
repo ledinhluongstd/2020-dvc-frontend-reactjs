@@ -147,7 +147,7 @@ class Danhsach extends Component {
             if (itemThuocTinh.KieuDuLieu.Ma == "select") {
                 itemThuocTinh.LuaChon.map((itemLuaChon, indexLuaChon) => {
                     if (itemLuaChon.Checked == true) {
-                        luachonSelected[indexThuocTinh] = itemLuaChon
+                        luachonSelected[`${indexThuocTinh}`] = itemLuaChon
                     }
                 })
             }
@@ -390,7 +390,7 @@ class Danhsach extends Component {
         })
     }
     _checkItemRadio = (item, indexCheck) => {
-        return item.LuaChon[indexCheck].Checked
+        return item.LuaChon[`${indexCheck}`].Checked
     }
     render() {
         let { danhsach, search, thuoctinh, searchDanhmuc, modalIsOpen, formModal, thuoctinhBanGhi, luachonSelected } = this.state

@@ -1,0 +1,8 @@
+.Toastify__toast {
+  border-radius: 3px !important;
+}
+.Toastify {
+  .Toastify__toast-container {
+    z-index: 99999;
+  }
+}

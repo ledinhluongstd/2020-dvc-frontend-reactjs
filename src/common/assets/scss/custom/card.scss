@@ -1,0 +1,49 @@
+.card {
+  border: none;
+  border-radius: 0;
+  .card-header {
+    background-color: transparent;
+    border-bottom: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    .caption-subject {
+      display: inline-block;
+      color: rgb(4, 87, 167) !important;
+      font-weight: bold;
+    }
+    .fa-chevron-down {
+      display: none;
+    }
+    .fa-chevron-up {
+      display: block;
+    }
+    &.collapsed {
+      .fa-chevron-down {
+        display: block !important;
+      }
+      .fa-chevron-up {
+        display: none !important;
+      }
+    }
+  }
+
+  .card-body {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .card-footer {
+    background-color: transparent;
+    border-top: 0;
+    padding: 0;
+    button {
+      margin: 0 2px 0 2px;
+    }
+  }
+}
+.card-bg-001 {
+  background-image: url("/common/assets/imgs/bg-001.png") !important;
+  background-repeat: no-repeat;
+  /* for vertical repeat */
+  background-color: #3f77d8 !important;
+}

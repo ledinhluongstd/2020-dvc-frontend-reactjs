@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="styles/stimulsoft.designer.office2013.whiteblue.css">
+  <link rel="stylesheet" href="styles/stimulsoft.viewer.office2013.whiteblue.css">
+  <script src="scripts/stimulsoft.reports.js"></script>
+  <script src="scripts/stimulsoft.viewer.js"></script>
+  <script src="scripts/stimulsoft.designer.js"></script>
+</head>
+
+<body>
+  <div id="designerContent"></div>
+  <script type="text/javascript">
+    var report = new Stimulsoft.Report.StiReport()
+    report.loadFile("http://localhost:3000/api/statistic/design/BaoCaoMau.mrt")
+    report.render()
+    var jsonString = report.saveDocumentToJsonString();
+    var designer = new Stimulsoft.Designer.StiDesigner(null, "StiDesigner", false);
+    designer.report = report
+    designer.renderHtml("designerContent");
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+.portlet {
+  .portlet-title {
+    padding: 15px 0 5px 0;
+    margin-bottom: 10px;
+    // margin-bottom: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dddddd;
+    .caption {
+      display: inline-block;
+      color: rgb(4, 87, 167) !important;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .action {
+    }
+    .btn {
+      .dropdown-menu {
+        min-width: 0;
+      }
+    }
+  }
+  .card-home {
+    border-radius: 3px;
+    .card-header {
+      padding: 1rem;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    .card-footer {
+      padding: 1rem;
+    }
+    .card-dashboard {
+      display: inline-grid;
+      padding-left: 1rem;
+      height: 120px;
+      padding-right: 0.5rem;
+      overflow-y: unset;
+
+      .card-db-item {
+        justify-content: space-between;
+        display: flex;
+      }
+    }
+  }
+
+  // /* width */
+  // ::-webkit-scrollbar {
+  //   width: 50px;
+  // }
+
+  // /* Track */
+  // ::-webkit-scrollbar-track {
+  //   background: #f1f1f1;
+  // }
+
+  // /* Handle */
+  // ::-webkit-scrollbar-thumb {
+  //   background: #888;
+  // }
+
+  // /* Handle on hover */
+  // ::-webkit-scrollbar-thumb:hover {
+  //   background: #555;
+  // }
+}
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

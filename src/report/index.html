@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Báo cáo</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="styles/stimulsoft.designer.office2013.whiteblue.css">
+  <link rel="stylesheet" href="styles/stimulsoft.viewer.office2013.whiteblue.css">
+
+  <script src="scripts/stimulsoft.reports.js"></script>
+  <script src="scripts/stimulsoft.viewer.js"></script>
+  <script src="scripts/stimulsoft.designer.js"></script>
+  <script type='text/javascript' src='../../config.js'></script>
+
+  <style type="text/css">
+    .stiJsViewerToolBar {
+      position: fixed !important;
+      margin-top: -10px;
+    }
+
+    .stiJsViewerParentMenu {
+      position: fixed !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="viewerContent" class="viewerContent">
+
+  </div>
+  <script type="text/javascript">
+    //http://localhost:3003/report/index.html?file=%C4%90KKhaiSinh&services=http://113.160.150.43:3393/api/eform/5d92b1a6e120941338c9dcc7&token=4CB1tA2AzwSbmWEA4VGWU3lFafOJey
+    let url = new URL(window.location.href);
+    let search = url.search.substr(1)
+    let searchObj = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
+    try {
+      if (!!searchObj.services || !!searchObj.token) {
+        let urlGetDataReport = `${searchObj.services}${"?token="}${searchObj.token}`
+        let languageRp = 'en'
+        let languageRpImpt = "./Localization/" + languageRp + '.xml'
+        Stimulsoft.Base.Localization.StiLocalization.addLocalizationFile(languageRpImpt, true);
+
+        let report = new Stimulsoft.Report.StiReport();
+        console.log(`${"http://"}${HTTP_API}${"/api/statistic/report/"}${searchObj.file}${".mrt"}`)
+        report.loadFile(`${HTTP_API}${"/api/statistic/report/"}${searchObj.file}${".mrt"}`)
+        let viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false)
+        viewer.report = report;
+        viewer.report.dictionary.databases.getByIndex(0).pathData = urlGetDataReport;
+        viewer.options.toolbar.zoom = 75;
+        viewer.renderHtml("viewerContent")
+      } else {
+        alert('Truy cập bị từ chối')
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  </script>
+</body>
+
+</html>

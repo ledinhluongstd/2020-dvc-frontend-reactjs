@@ -1,0 +1,15 @@
+.list-gmap-address-suggestions {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  background: #ffffff;
+  padding: 5px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  .suggestions-item {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    cursor: pointer;
+  }
+}

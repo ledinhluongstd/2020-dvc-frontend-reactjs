@@ -1,0 +1,200 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~react-toastify/dist/ReactToastify.css";
+// @import "~react-confirm-alert/src/react-confirm-alert.css";
+@import "./custom.scss";
+
+// Import Custom Variables
+@import "./variables.scss";
+
+// Import Bootstrap
+
+//Admin Layout
+@import "./admin-layout/index.scss";
+@import "./web-layout/index.scss";
+
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("../fonts/Roboto-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Italic";
+  src: url("../fonts/Roboto-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url("../fonts/Roboto-Thin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: Roboto-Regular !important;
+  font-size: 14px !important;
+}
+body {
+  font-family: Roboto-Regular !important;
+  font-size: 14px !important;
+  height: 100%;
+  div#root {
+    background-color: #ffffff;
+    color: black;
+    // color: #8ee4af;
+  }
+  .main {
+    padding: 0.5rem;
+  }
+}
+// Set spacing on containers for page symmetry
+.container,
+.container-fluid {
+  padding-left: 0; // $grid-gutter-width;
+  padding-right: 0; // $grid-gutter-width;
+}
+
+.div-loadable {
+  width: 100vw;
+  height: 100vh;
+  background-color: #dddddd;
+  position: absolute;
+  color: #007bff;
+  text-align: center;
+  .div-fas-spinner {
+    margin-top: 40vh;
+  }
+}
+.div-spinner {
+  z-index: 999999999 !important;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #007bff;
+  text-align: center;
+  .div-fas-spinner {
+    margin-top: 40vh;
+  }
+}
+.link {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  border-radius: 0;
+  // margin: 0 2px 0 2px;
+}
+.dropdown-menu {
+  border-radius: 0;
+}
+
+.footer {
+  bottom: 0;
+  border-top: 1px solid #e7e7e7;
+  padding: 0 15px;
+  vertical-align: middle;
+  justify-content: space-between;
+  a: {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  .left {
+    padding: 15px 0;
+    margin: 0;
+    // font-size: 18px;
+    float: left !important;
+  }
+  .right {
+    padding: 15px 0;
+    margin: 0;
+    // font-size: 14px;
+    float: right !important;
+  }
+}
+
+.pull-right {
+  float: right;
+}
+
+.color-white {
+  color: #ffffff;
+}
+
+.iframe {
+  width: 100%;
+  min-height: 100vh;
+  border: none;
+  overflow: auto;
+}
+hr {
+  &.doted{
+    border-top: 1px dotted #dddddd;
+  }
+}
+////// scrollbar
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+#google-visualization-errors-all-1{
+  display: none !important;
+}

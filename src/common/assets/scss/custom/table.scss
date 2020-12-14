@@ -1,0 +1,98 @@
+table {
+  thead,
+  tfoot {
+    text-align: center;
+  }
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+    .span-index {
+      background-color: red;
+    }
+    a {
+      margin: 0 2px 0 2px;
+    }
+    .dropdown-menu{
+      min-width: 0 !important;
+      padding: 0.1rem 0 !important;;
+    }
+  }
+  .th-stt {
+    width: 50px;
+  }
+  .th-action {
+    width: 150px;
+  }
+  .td-nhom {
+    font-weight: bold;
+  }
+  .td-url {
+    color: #007bff;
+  }
+  .td-dangky {
+  }
+  .td-last-call {
+    color: #80898e;
+  }
+}
+.fix-first {
+  table {
+    th {
+      vertical-align: middle;
+    }
+    thead,
+    tbody,
+    tfoot {
+      td:nth-child(1) {
+        vertical-align: middle !important;
+        text-align: center;
+        width: 40px;
+      }
+    }
+
+    tbody {
+      td:last-child {
+        text-align: center;
+        width: 140px;
+      }
+    }
+  }
+}
+// //
+.table-fix-head-custom {
+  overflow-x: scroll;
+  max-height: calc(100vh - 200px);
+
+  /* Just common table stuff. Really. */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th {
+    background: #dddddd;
+  }
+}
+.table-fix-head-custom thead th {
+  position: sticky;
+  top: -1px;
+}
+
+.table-fix-head-custom-overvivew {
+  overflow-x: scroll;
+  height: calc(100vh - 400px);
+  // min-height: calc(100vh - 400px);
+
+  /* Just common table stuff. Really. */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th {
+    background: #dddddd;
+  }
+}
+.table-fix-head-custom-overvivew thead th {
+  position: sticky;
+  top: -1px;
+}

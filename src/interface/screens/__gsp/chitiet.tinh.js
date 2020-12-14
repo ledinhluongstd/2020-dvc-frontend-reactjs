@@ -233,7 +233,7 @@ class ChiTiet extends Component {
                           <td className='text-center'>{index + 1}</td>
                           {
                             item && Object.keys(item).map(function (key, ind) {
-                              return (<td key={ind}>{item[key]}</td>)
+                              return (<td key={ind}>{item[`${key}`]}</td>)
                             })
                           }
                           <td>
@@ -280,7 +280,7 @@ class ChiTiet extends Component {
                             disabled={true}
                             readOnly={true}
                             onChange={null}
-                            defaultValue={detail[key] || ''}
+                            defaultValue={detail[`${key}`] || ''}
                             type="text"
                             label={key}
                           />

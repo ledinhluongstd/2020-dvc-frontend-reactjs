@@ -78,7 +78,7 @@ class ChiTiet extends Component {
     this.state.kieudulieuTimeout = setTimeout(async () => {
       let kieudulieu = []
       Object.keys(CONSTANTS.KIEU_DU_LIEU).map(function (key, index) {
-        kieudulieu.push(CONSTANTS.KIEU_DU_LIEU[key])
+        kieudulieu.push(CONSTANTS.KIEU_DU_LIEU[`${key}`])
       });
       this.state.kieudulieu = kieudulieu;
       this.forceUpdate();

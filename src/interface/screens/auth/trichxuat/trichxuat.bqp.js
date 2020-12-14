@@ -552,7 +552,7 @@ class TrichXuat extends Component {
                                   <td className='text-center'>{index + 1}</td>
                                   {
                                     item && Object.keys(item).map(function (key, ind) {
-                                      return (<td key={ind}>{item[key]}</td>)
+                                      return (<td key={ind}>{item[`${key}`]}</td>)
                                     })
                                   }
                                 </tr>

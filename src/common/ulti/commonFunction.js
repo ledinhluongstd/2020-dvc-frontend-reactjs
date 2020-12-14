@@ -19,10 +19,10 @@ function converDanhSachMaDanhMuc() {
   let options = []
   Object.keys(CONSTANTS.MA_DANH_MUC).map(function (key, index) {
     options.push({
-      Ma: CONSTANTS.MA_DANH_MUC[key].Ma,
-      Ten: CONSTANTS.MA_DANH_MUC[key].Ten,
-      value: CONSTANTS.MA_DANH_MUC[key].Ma,
-      label: CONSTANTS.MA_DANH_MUC[key].Ten
+      Ma: CONSTANTS.MA_DANH_MUC[`${key}`].Ma,
+      Ten: CONSTANTS.MA_DANH_MUC[`${key}`].Ten,
+      value: CONSTANTS.MA_DANH_MUC[`${key}`].Ma,
+      label: CONSTANTS.MA_DANH_MUC[`${key}`].Ten
     })
   });
   return options

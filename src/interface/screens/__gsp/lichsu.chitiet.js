@@ -107,14 +107,14 @@ class ChiTiet extends Component {
                 <div className="form-body" ref="form">
                   {Object.keys(form).map(function (key, index) {
                     let checkKey = keyNonDisplay.findIndex(x => x === key)
-                    if (checkKey === -1 && !!form[key]) {
+                    if (checkKey === -1 && !!form[`${key}`]) {
                       return <React.Fragment key={index}> <FormWrapper>
                         <FormInput
                           required={false}
                           disabled={true}
                           readOnly={true}
                           onChange={null}
-                          defaultValue={form[key] || ''}
+                          defaultValue={form[`${key}`] || ''}
                           type="text"
                           id={key}
                           label={key + ': '}
@@ -165,7 +165,7 @@ class ChiTiet extends Component {
                             <td className='text-center'>{index + 1}</td>
                             {
                               item && Object.keys(item).map(function (key, ind) {
-                                return (<td key={ind}>{item[key]}</td>)
+                                return (<td key={ind}>{item[`${key}`]}</td>)
                               })
                             }
                           </tr>

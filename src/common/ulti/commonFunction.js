@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import moment from 'moment'
 
 let jwtDecode = require("jwt-decode");
-const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+// const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 function goBack(e) {
   if (e) e.preventDefault()
@@ -75,11 +75,11 @@ const checkRole = function (type, roles) {
   return index !== -1;
 };
 
-const checkEmail = function (email) {
-  return regexEmail.test(
-    email
-  );
-};
+// const checkEmail = function (email) {
+//   return regexEmail.test(
+//     email
+//   );
+// };
 const checkPhoneNumber = function (phone) {
   return /((09|03|07|08|05)+([0-9]{8})\b)/g.test(phone);
 };
@@ -314,7 +314,7 @@ export {
   toDateDisplay,
   checkPhoneNumber,
   changeAlias,
-  checkEmail,
+  // checkEmail,
   parseJwt,
   isEmpty,
   checkValidate,

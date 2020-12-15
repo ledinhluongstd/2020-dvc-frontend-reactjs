@@ -4,7 +4,8 @@ import * as CONSTANTS from './constants'
 import ReactDOM from 'react-dom';
 import moment from 'moment'
 
-var jwtDecode = require("jwt-decode");
+let jwtDecode = require("jwt-decode");
+const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 function goBack(e) {
   if (e) e.preventDefault()
@@ -29,7 +30,7 @@ function converDanhSachMaDanhMuc() {
 }
 
 const parseJwt = function (token) {
-  var decoded = jwtDecode(token);
+  let decoded = jwtDecode(token);
   if (!decoded) return 0;
   return decoded;
 };
@@ -75,7 +76,7 @@ const checkRole = function (type, roles) {
 };
 
 const checkEmail = function (email) {
-  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+  return regexEmail.test(
     email
   );
 };
@@ -89,7 +90,7 @@ const checkValidate = function (self, formRef) {
 
 function changeAlias(alias) {
   if (!alias || !alias.length) return "";
-  var str = alias;
+  let str = alias;
   str = str.toLowerCase();
   str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
   str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -148,8 +149,8 @@ function toDateDisplay(data) {
 function convertSelectOptions(array, value, label, valueDisabled = []) {
   let arr = []
   array.map((item) => {
-    let checkDisabed = valueDisabled.findIndex(x => (x[value] || x._id.$oid || x._id) === (item[value] || item._id.$oid || item._id)) !== -1
-    item.value = item[value] || item._id.$oid || item._id
+    let checkDisabed = valueDisabled.findIndex(x => (x[`${value}`] || x._id.$oid || x._id) === (item[`${value}`] || item._id.$oid || item._id)) !== -1
+    item.value = item[`${value}`] || item._id.$oid || item._id
     item.label = item[label]
     item.isDisabled = checkDisabed
     arr.push(item)
@@ -161,13 +162,13 @@ function convertSelectedOptions(obj, value, label) {
   if (!obj) return null
   if (obj.length !== undefined && obj != 0) {
     obj.forEach((item, index) => {
-      let vl = item[value] || (item._id ? (item._id.$oid || item._id) : null)
+      let vl = item[`${value}`] || (item._id ? (item._id.$oid || item._id) : null)
       let lb = item[label] || item.Ten
       obj[`${index}`].value = vl
       obj[`${index}`].label = lb
     })
   } else {
-    let vl = obj[value] || (obj._id ? (obj._id.$oid || obj._id) : null)
+    let vl = obj[`${value}`] || (obj._id ? (obj._id.$oid || obj._id) : null)
     let lb = obj[label] || obj.Ten
     if (vl && lb) {
       obj.value = vl
